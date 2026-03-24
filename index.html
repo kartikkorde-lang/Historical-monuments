@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taj Mahal – A Monument of Eternal Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ivory:     #f5f0e8;
+      --parchment: #e8dfc8;
+      --gold:      #c9a84c;
+      --gold-light:#e8c96e;
+      --deep:      #1a1208;
+      --brown:     #5c3d1e;
+      --teal:      #2a5f6e;
+      --teal-light:#3a8fa3;
+      --shadow:    rgba(26,18,8,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--ivory);
+      color: var(--deep);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    /* ── ORNAMENT ── */
+    .ornament {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+      letter-spacing: 0.5rem;
+      margin: 0.5rem 0;
+      opacity: 0.75;
+      user-select: none;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(160deg, #0d2b33 0%, #1a4a58 50%, #0d2b33 100%);
+      color: var(--ivory);
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    header .subtitle {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1rem;
+      letter-spacing: 0.2rem;
+      margin-bottom: 0.75rem;
+      opacity: 0.85;
+      animation: fadeDown 1s ease both;
+    }
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #fff;
+      text-shadow: 0 4px 24px rgba(201,168,76,0.35);
+      animation: fadeDown 1s 0.15s ease both;
+    }
+    header .tagline {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.15rem;
+      margin-top: 0.75rem;
+      opacity: 0.8;
+      animation: fadeDown 1s 0.3s ease both;
+    }
+    .gold-rule {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.5rem auto;
+      width: 60%;
+      animation: fadeDown 1s 0.45s ease both;
+    }
+
+    /* ── IMAGE SECTION ── */
+    .hero-image-wrap {
+      position: relative;
+      max-width: 860px;
+      margin: -2rem auto 0;
+      padding: 0 1.5rem;
+      animation: riseUp 1.1s 0.5s ease both;
+      z-index: 2;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 3px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 0 6px var(--parchment), 0 0 0 8px var(--gold);
+      object-fit: cover;
+      height: 440px;
+    }
+    .image-caption {
+      text-align: center;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      color: var(--brown);
+      font-size: 0.92rem;
+      margin-top: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 860px;
+      margin: 3rem auto 0;
+      padding: 0 2rem 4rem;
+    }
+
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .content-section {
+      margin-bottom: 3rem;
+      animation: riseUp 0.9s ease both;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #2e1f0d;
+      font-size: 1.12rem;
+    }
+
+    /* ── DROPCAP ── */
+    .dropcap::first-letter {
+      float: left;
+      font-family: 'Cinzel', serif;
+      font-size: 4.2rem;
+      line-height: 0.75;
+      padding: 0.1em 0.12em 0 0;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ── FACTS BOX ── */
+    .facts-box {
+      background: linear-gradient(135deg, #0d2b33 0%, #1a4a58 100%);
+      border-radius: 4px;
+      padding: 2.2rem 2.5rem;
+      color: var(--ivory);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 40px var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .facts-box::after {
+      content: '✦';
+      position: absolute;
+      right: 2rem; top: 1rem;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .facts-box .section-label { color: var(--gold-light); }
+    .facts-box h2 { color: var(--gold-light); margin-bottom: 1.2rem; }
+    .facts-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .facts-list li {
+      padding: 0.65rem 0 0.65rem 2rem;
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      position: relative;
+      font-size: 1.07rem;
+      color: #e8dfc8;
+      line-height: 1.6;
+    }
+    .facts-list li:last-child { border-bottom: none; }
+    .facts-list li::before {
+      content: '◆';
+      position: absolute; left: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      top: 0.9rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0;
+      color: var(--gold);
+      opacity: 0.5;
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+    /* ── QUOTE BLOCK ── */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      background: var(--parchment);
+      border-radius: 0 3px 3px 0;
+    }
+    blockquote p {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--brown);
+      margin: 0;
+    }
+    blockquote cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--teal);
+      font-style: normal;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep);
+      color: var(--parchment);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    footer .gold-rule { margin: 1rem auto; opacity: 0.4; }
+    footer small { font-size: 0.78rem; opacity: 0.5; font-style: normal; font-family: 'Cormorant Garamond', serif; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes riseUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero-image-wrap img { height: 240px; }
+      main { padding: 0 1.1rem 3rem; }
+      .facts-box { padding: 1.5rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <p class="subtitle">✦ &nbsp; A Wonder of the World &nbsp; ✦</p>
+    <h1>Taj Mahal</h1>
+    <p class="tagline">An Eternal Testament to Love &amp; Beauty</p>
+    <hr class="gold-rule"/>
+  </header>
+
+  <!-- HERO IMAGE -->
+  <div class="hero-image-wrap">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1280px-Taj_Mahal_%28Edited%29.jpeg"
+      alt="The Taj Mahal reflected in the long pool at sunrise, Agra, India"
+    />
+    <p class="image-caption">The Taj Mahal at dawn — Agra, Uttar Pradesh, India &nbsp;|&nbsp; UNESCO World Heritage Site</p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- SECTION 1: What is it? -->
+    <section class="content-section">
+      <div class="ornament">— ✦ —</div>
+      <p class="section-label">01 &nbsp; Overview</p>
+      <h2>What is the Taj Mahal?</h2>
+      <p class="dropcap">
+        The Taj Mahal is one of the most magnificent structures ever built by human hands — an immense mausoleum crafted entirely from white Makrana marble, shimmering ivory in sunlight and pale gold at dusk. It stands as a complete architectural complex: a grand gateway, formal gardens, a mosque, a guesthouse, and the tomb itself, all arranged in perfect symmetry along a single north–south axis.
+      </p>
+      <p>
+        Commissioned in 1632 CE by the Mughal Emperor Shah Jahan, the monument was built to house the tomb of his beloved wife, Mumtaz Mahal, who died during the birth of their fourteenth child. Shah Jahan's grief was immeasurable, and he channelled it into the creation of the world's most celebrated monument to love. The name <em>Taj Mahal</em> is believed to derive from "Mumtaz Mahal," meaning <em>Crown of the Palace</em>.
+      </p>
+    </section>
+
+    <div class="divider">✦</div>
+
+    <!-- SECTION 2: Location & History -->
+    <section class="content-section">
+      <p class="section-label">02 &nbsp; Location &amp; History</p>
+      <h2>Where &amp; When Was It Built?</h2>
+      <p>
+        The Taj Mahal sits on the southern bank of the Yamuna River in Agra, Uttar Pradesh, in northern India — approximately 200 kilometres south-east of New Delhi. Construction began around 1632 CE and was largely completed by 1648–1653 CE, spanning over two decades of continuous effort. The project drew on the talents of over 20,000 artisans, craftsmen, and labourers recruited from across the Mughal Empire, Persia, Ottoman Turkey, and Europe.
+      </p>
+      <p>
+        The principal architect is widely credited as Ustad Ahmad Lahouri, a Persian master builder attached to the Mughal court. The complex's design draws deeply from Persian, Islamic, and earlier Mughal architectural traditions, synthesising them into something entirely unprecedented. Semi-precious stones — lapis lazuli, jade, crystal, turquoise, and carnelian — were inlaid into the marble using the <em>parchin kari</em> technique, creating the glittering floral and calligraphic panels that adorn the tomb's interior and exterior.
+      </p>
+
+      <blockquote>
+        <p>"Should guilty seek asylum here, like one pardoned he becomes free from sin. Should a sinner make his way to this mansion, all his past sins are to be washed away."</p>
+        <cite>— Inscription on the south face of the Taj Mahal Gateway, 17th century</cite>
+      </blockquote>
+    </section>
+
+    <div class="divider">✦</div>
+
+    <!-- SECTION 3: Historical Importance -->
+    <section class="content-section">
+      <p class="section-label">03 &nbsp; Significance</p>
+      <h2>Why Is It Historically Important?</h2>
+      <p>
+        The Taj Mahal represents the apex of Mughal architecture — the cultural and artistic high-water mark of one of history's most powerful empires. It stands not only as a monument to personal grief but as a symbol of the Mughal Empire's unparalleled wealth, administrative strength, and cosmopolitan artistic vision at its zenith under Shah Jahan's reign (1628–1658 CE).
+      </p>
+      <p>
+        In 1983, UNESCO inscribed the Taj Mahal as a World Heritage Site, describing it as "the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage." It was also declared one of the New Seven Wonders of the World in 2007, following a global poll of over 100 million votes. Today it draws approximately six to eight million visitors annually, making it India's most visited monument and a cornerstone of its cultural identity.
+      </p>
+    </section>
+
+    <!-- FACTS BOX -->
+    <div class="facts-box">
+      <p class="section-label">04 &nbsp; Quick Facts</p>
+      <h2>Fascinating Facts About the Taj Mahal</h2>
+      <ul class="facts-list">
+        <li>The entire structure weighs an estimated <strong>74,000 tonnes</strong> — yet the four surrounding minarets are built slightly tilted <em>outward</em>, so that in the event of an earthquake, they would fall away from the main tomb.</li>
+        <li>The white marble changes colour throughout the day — it appears pinkish at dawn, dazzling white at noon, and takes on a golden hue by moonlight, symbolising different moods of a woman.</li>
+        <li>Construction required material from across Asia: marble from Makrana (Rajasthan), jasper from Punjab, jade &amp; crystal from China, turquoise from Tibet, and sapphire from Sri Lanka.</li>
+        <li>The main dome stands <strong>73 metres (240 feet)</strong> tall — roughly the height of a 20-storey building — and is surrounded by four smaller domed kiosks called <em>chattris</em>.</li>
+        <li>Shah Jahan himself was later imprisoned by his own son Aurangzeb and spent his final years gazing at the Taj Mahal from the Agra Fort across the river.</li>
+        <li>The gardens follow the <em>charbagh</em> (four-garden) layout, a Quranic symbol of Paradise divided into four quadrants by water channels, with the tomb centred at the intersection.</li>
+        <li>The calligraphic inscriptions on the gateway are designed with letters that increase in size the higher they go, creating an optical illusion of uniform height when viewed from the ground.</li>
+      </ul>
+    </div>
+
+    <div class="ornament">— ✦ ✦ ✦ —</div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>"Not a piece of architecture, as other buildings are, but the proud passions of an emperor's love wrought in living stones."</p>
+    <p style="margin-top:0.3rem; font-size:0.85rem; opacity:0.6;">— Sir Edwin Arnold, British poet, 1886</p>
+    <hr class="gold-rule" />
+    <small>Historical Place Assignment &nbsp;|&nbsp; Taj Mahal, Agra, India &nbsp;|&nbsp; Built c. 1632–1653 CE</small>
+  </footer>
+
+</body>
+</html>
